@@ -1,8 +1,18 @@
 <?php
 
-function errorOutputPDO($rPDO,  string $sMessage ) {
-    echo $sMessage;
-    print_r($rPDO->errorInfo());
+function errorOutputPDO($rPDO, $rStatement, string $sMessage ) {
+    print_r( $sMessage);
+    print_r("<br>");
+
+    $aErrorLog = $rStatement->errorInfo();
+    print_r( $aErrorLog);
+    print_r("<br>");
+
+    $aErrorLog = $rPDO->errorInfo();
+    print_r( $aErrorLog);
+    print_r("<br>");
+
+
     return;
 }
 

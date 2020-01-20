@@ -33,12 +33,13 @@ function db_connect()
                                             title varchar(250) null
                                     );
                            ");
-    if (!$rStatementMainTheme)
-        errorOutputPDO($rPDO,"rPDO->prepare:/n");
 
-    $rStatementMainTheme->execute();
     if (!$rStatementMainTheme)
-        errorOutputPDO($rPDO,"execute:/n");
+        errorOutputPDO($rPDO, $rStatementMainTheme,"\nrPDO->prepare:\n");
+
+    $bExecution= $rStatementMainTheme->execute();
+    if (!$bExecution)
+        errorOutputPDO($rPDO, $rStatementMainTheme, "execute:\n");
 
 
     $rStatementArticles = $rPDO->prepare(
@@ -54,10 +55,10 @@ function db_connect()
                                     );
                      ");
     if (!$rStatementArticles)
-        errorOutputPDO($rPDO,"rPDO->prepare:/n");
-    $rStatementArticles->execute();
-    if (!$rStatementArticles)
-        errorOutputPDO($rPDO,"execute:/n");
+        errorOutputPDO($rPDO, $rStatementArticles, "rPDO->prepare:\n");
+    $bExecution = $rStatementArticles->execute();
+    if (!$bExecution)
+        errorOutputPDO($rPDO, $rStatementArticles, "execute:\n");
 
 
     return $rPDO;
