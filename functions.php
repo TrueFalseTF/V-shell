@@ -36,22 +36,17 @@ function position_generator($rPDO, string $sTable, string $sSortedColumn, bool $
 
 
     var_dump ($bExecution);
-
+/*
     $n = mysqli_num_rows($result);
     if($n == 0){
         clearing_table($link, $sTable);
     }
-    $position =  array();
-
-    for ($i = 0; $i < $n; $i++)
-    {
-        $row = mysqli_fetch_assoc($result);
-        $position[] = $row;
-    }
-
-    return $position;
+*/
+    return $rStatement;
 }
-
+//***//
+//Чистка таблицы при пустом результате выборки
+/*
 function clearing_table($link, $sTable) {
     $query = "TRUNCATE TABLE ".$sTable;
 
@@ -59,7 +54,7 @@ function clearing_table($link, $sTable) {
     if (!$result_clearing)
         die(mysqli_error($link));
 }
-
+*/
 function errorOutputPDO($rPDO, $rStatement, string $sMessage ) {
     print_r( $sMessage);
     print_r("<br>");
@@ -74,4 +69,5 @@ function errorOutputPDO($rPDO, $rStatement, string $sMessage ) {
 
     return;
 }
+
 

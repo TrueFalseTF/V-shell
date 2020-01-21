@@ -13,19 +13,6 @@ function db_connect()
         exit('Подключение не удалось: ' . $e->getMessage());
     }
 
-    /*
-    $link = mysqli_connect(MYSQL_SERVER, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DB)
-    or die("Error: " . mysqli_error($link));
-    if (!mysqli_set_charset($link, "utf8")) {
-        print("Error: " . mysqli_error($link));
-    }
-    $mysql_db = MYSQL_DB;
-
-    $result_USE = mysqli_query($link,
-        "USE " . $mysql_db);
-    if (!$result_USE)
-        die(mysqli_error($link));*/
-
     $rStatementMainTheme = $rPDO->prepare(
         "create table if not exists main_theme
                                     (
@@ -59,7 +46,6 @@ function db_connect()
     $bExecution = $rStatementArticles->execute();
     if (!$bExecution)
         errorOutputPDO($rPDO, $rStatementArticles, "execute:\n");
-
 
     return $rPDO;
 }

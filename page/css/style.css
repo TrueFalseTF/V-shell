@@ -1,3 +1,6 @@
+body {
+    width: 100%;
+}
 .theme_menu {
     width: 170px;
     float: left;
@@ -5,6 +8,5 @@
 
 .articles_box {
     display: inline-block;
-
-
+    width: calc(100% - 170px);
 }

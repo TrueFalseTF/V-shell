@@ -1,3 +1,6 @@
+<?php
+    $sTemplateInclude = NULL;
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -9,13 +12,13 @@
     <div class="theme_menu">
         <h1>Главные темы</h1>
         <?php
-            include ();
+            include("template/articles.php");
         ?>
     </div>
     <div class="articles_box">
         <h2>Статьи</h2>
         <?php
-            include ();
+            include("template/main_theme.php");
         ?>
     </div>
 </body>
